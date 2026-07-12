@@ -8,7 +8,7 @@ function App() {
       <header className="text-center py-12">
 
         <h1 className="text-5xl md:text-6xl font-extrabold text-orange-700">
-          Recipe Book
+          Nepali Recipe Book
         </h1>
 
         <p className="mt-4 text-gray-700 text-lg">
