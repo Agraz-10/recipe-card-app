@@ -1,19 +1,20 @@
 function RecipeCard({ recipe }) {
-
   const difficultyColor = {
     Easy: "bg-green-100 text-green-700",
     Medium: "bg-yellow-100 text-yellow-700",
-    Hard: "bg-red-100 text-red-700"
+    Hard: "bg-red-100 text-red-700",
   };
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+    <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl hover:-translate-y-3 transition-all duration-300">
 
-      <img
-        src={recipe.image}
-        alt={recipe.name}
-        className="w-full h-56 object-cover"
-      />
+      <div className="overflow-hidden">
+        <img
+          src={recipe.image}
+          alt={recipe.name}
+          className="w-full h-56 object-cover hover:scale-110 transition-transform duration-500"
+        />
+      </div>
 
       <div className="p-6">
 
@@ -23,19 +24,20 @@ function RecipeCard({ recipe }) {
 
         <div className="flex justify-between items-center mb-5">
 
-          <span className="text-gray-600">
-            ⏱ {recipe.time}
-          </span>
+          <div className="flex items-center gap-2 text-gray-600">
+            <span>⏱️</span>
+            <span>{recipe.time}</span>
+          </div>
 
           <span
-            className={`px-3 py-1 rounded-full text-sm font-semibold ${difficultyColor[recipe.difficulty]}`}
+            className={`px-4 py-1 rounded-full text-sm font-semibold ${difficultyColor[recipe.difficulty]}`}
           >
             {recipe.difficulty}
           </span>
 
         </div>
 
-        <h3 className="font-semibold text-lg mb-2 text-orange-700">
+        <h3 className="text-lg font-semibold text-orange-600 mb-3">
           Ingredients
         </h3>
 
@@ -46,11 +48,16 @@ function RecipeCard({ recipe }) {
               key={index}
               className="flex items-center gap-2 text-gray-700"
             >
-                {ingredient}
+              <span className="text-green-600">✔</span>
+              {ingredient}
             </li>
           ))}
 
         </ul>
+
+        <button className="mt-6 w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl font-semibold transition duration-300">
+          View Recipe →
+        </button>
 
       </div>
 
