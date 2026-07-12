@@ -14,15 +14,12 @@ function App() {
         {recipes.map((recipe) => (
           <RecipeCard
             key={recipe.id}
-            image={recipe.image}
-            name={recipe.name}
-            time={recipe.time}
-            difficulty={recipe.difficulty}
-            ingredients={recipe.ingredients}
+            recipe={recipe}
           />
         ))}
 
       </div>
+
     </div>
   );
 }

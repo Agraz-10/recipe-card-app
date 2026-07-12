@@ -12,7 +12,6 @@ const recipes = [
       "Parmesan Cheese"
     ]
   },
-
   {
     id: 2,
     name: "Margherita Pizza",
@@ -26,7 +25,6 @@ const recipes = [
       "Basil"
     ]
   },
-
   {
     id: 3,
     name: "Classic Burger",
@@ -40,7 +38,6 @@ const recipes = [
       "Lettuce"
     ]
   },
-
   {
     id: 4,
     name: "Chicken Momo",
@@ -54,7 +51,6 @@ const recipes = [
       "Ginger"
     ]
   },
-
   {
     id: 5,
     name: "Chocolate Pancake",
