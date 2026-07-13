@@ -6,6 +6,7 @@ import CategoryFilter from "./components/CategoryFilter";
 import RecipeCard from "./components/RecipeCard";
 import RecipeDetails from "./components/RecipeDetails";
 import recipes from "./data/recipes";
+import About from "./components/About";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -97,6 +98,9 @@ function App() {
         </div>
 
       </section>
+
+      {/* About Section */}
+      <About />
 
     </div>
   );
