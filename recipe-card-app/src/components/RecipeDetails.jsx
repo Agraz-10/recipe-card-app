@@ -12,9 +12,15 @@ function RecipeDetails({ recipe }) {
 
       <div className="max-w-5xl mx-auto">
 
-        <Link to="/recipes" className="inline-block mb-6 text-orange-600 font-semibold hover:underline">
-          ← Back to Recipes
-        </Link>
+        <div className="flex gapp-6 mb-6">
+          <Link to="/" className="text-orange-600 font-semibold hover:underline">
+            ← Home
+          </Link>
+
+          <Link to="/recipes" className="text-orange-600 font-semibold hover:underline">
+            ← All Recipes
+          </Link>
+        </div>
 
         {/* Main Card */}
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
