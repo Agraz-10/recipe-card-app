@@ -5,6 +5,7 @@ import CategoryFilter from "./components/CategoryFilter";
 import RecipeCard from "./components/RecipeCard";
 import RecipeDetails from "./components/RecipeDetails";
 import recipes from "./data/recipes";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -34,6 +35,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-100 to-red-100">
+
+      <Navbar />
 
       <Header />
 
