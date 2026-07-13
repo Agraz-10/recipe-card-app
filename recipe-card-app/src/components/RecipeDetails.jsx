@@ -6,81 +6,108 @@ function RecipeDetails({ recipe, goBack }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-100 to-red-100 py-10">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-100 to-red-100 py-10 px-6">
 
-      <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
+      <div className="max-w-5xl mx-auto">
 
-        <img
-          src={recipe.image}
-          alt={recipe.name}
-          className="w-full h-96 object-cover"
-        />
+        {/* Back Button */}
+        <button
+          onClick={goBack}
+          className="mb-6 bg-white px-5 py-3 rounded-xl shadow-md hover:bg-orange-500 hover:text-white transition cursor-pointer"
+        >
+          ← Back to Recipes
+        </button>
 
-        <div className="p-8">
+        {/* Main Card */}
+        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
 
-          <button
-            onClick={goBack}
-            className="mb-6 text-orange-600 font-semibold hover:underline cursor-pointer"
-          >
-            ← Back to Recipes
-          </button>
+          {/* Image */}
+          <img
+            src={recipe.image}
+            alt={recipe.name}
+            className="w-full h-96 object-cover"
+          />
 
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            {recipe.name}
-          </h1>
+          <div className="p-8">
 
-          <div className="flex flex-wrap gap-4 mb-6">
+            {/* Title */}
+            <h1 className="text-5xl font-bold text-gray-800">
+              {recipe.name}
+            </h1>
 
-            <span className="bg-yellow-100 text-yellow-700 px-4 py-2 rounded-full font-semibold">
-              ⭐ {recipe.rating}
-            </span>
+            <p className="text-lg text-gray-500 mt-2">
+              Authentic Nepali {recipe.category}
+            </p>
 
-            <span className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-semibold">
-              ⏱ {recipe.time}
-            </span>
+            {/* Rating */}
+            <div className="mt-5">
+              <span className="text-yellow-500 text-2xl">
+                ⭐ {recipe.rating}
+              </span>
+            </div>
 
-            <span className="bg-red-100 text-red-700 px-4 py-2 rounded-full font-semibold">
-              🔥 {recipe.calories} kcal
-            </span>
+            {/* Description */}
+            <div className="mt-8">
 
-            <span className="bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-semibold">
-              🍽 Serves {recipe.servings}
-            </span>
+              <h2 className="text-3xl font-bold text-orange-600 mb-4">
+                Description
+              </h2>
 
-            <span
-              className={`px-4 py-2 rounded-full font-semibold ${difficultyColor[recipe.difficulty]}`}
-            >
-              {recipe.difficulty}
-            </span>
+              <p className="text-gray-700 leading-8">
+                {recipe.description}
+              </p>
+
+            </div>
+
+            {/* Quick Facts */}
+            <div className="mt-10">
+
+              <h2 className="text-3xl font-bold text-orange-600 mb-6">
+                Quick Facts
+              </h2>
+
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+
+                <div className="bg-orange-100 rounded-xl p-4 text-center">
+                  <p className="text-2xl">⏱</p>
+                  <p className="font-semibold">{recipe.time}</p>
+                </div>
+
+                <div className="bg-red-100 rounded-xl p-4 text-center">
+                  <p className="text-2xl">🔥</p>
+                  <p className="font-semibold">
+                    {recipe.calories} kcal
+                  </p>
+                </div>
+
+                <div className="bg-purple-100 rounded-xl p-4 text-center">
+                  <p className="text-2xl">🍽</p>
+                  <p className="font-semibold">
+                    Serves {recipe.servings}
+                  </p>
+                </div>
+
+                <div className="bg-blue-100 rounded-xl p-4 text-center">
+                  <p className="text-2xl">🥟</p>
+                  <p className="font-semibold">
+                    {recipe.category}
+                  </p>
+                </div>
+
+                <div
+                  className={`rounded-xl p-4 text-center ${difficultyColor[recipe.difficulty]}`}
+                >
+                  <p className="text-2xl">🏷</p>
+                  <p className="font-semibold">
+                    {recipe.difficulty}
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
 
           </div>
-
-          <h2 className="text-2xl font-bold text-orange-600 mb-3">
-            Ingredients
-          </h2>
-
-          <ul className="space-y-2 mb-8">
-            {recipe.ingredients.map((ingredient, index) => (
-              <li
-                key={index}
-                className="text-gray-700"
-              >
-                ✔ {ingredient}
-              </li>
-            ))}
-          </ul>
-
-          <h2 className="text-2xl font-bold text-orange-600 mb-3">
-            Cooking Steps
-          </h2>
-
-          <ol className="list-decimal ml-6 space-y-3 text-gray-700">
-            {recipe.steps.map((step, index) => (
-              <li key={index}>
-                {step}
-              </li>
-            ))}
-          </ol>
 
         </div>
 
