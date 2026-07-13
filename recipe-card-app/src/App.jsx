@@ -10,7 +10,6 @@ import RecipePage from "./pages/RecipePage";
 function App() {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [setSelectedRecipe] = useState(null);
 
   const filteredRecipes = recipes.filter((recipe) => {
     const matchesSearch = recipe.name
@@ -38,7 +37,6 @@ function App() {
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
               filteredRecipes={filteredRecipes}
-              onViewRecipe={setSelectedRecipe}
             />
           }
         />
@@ -52,15 +50,13 @@ function App() {
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
               filteredRecipes={filteredRecipes}
-              onViewRecipe={setSelectedRecipe}
             />
           }
+        />
 
+        <Route
           path="/recipes/:id"
-          element={
-          <RecipePage
-            
-          />}
+          element={<RecipePage />}
         />
 
       </Routes>
