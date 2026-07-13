@@ -6,6 +6,7 @@ import RecipeCard from "./components/RecipeCard";
 import RecipeDetails from "./components/RecipeDetails";
 import recipes from "./data/recipes";
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -38,7 +39,7 @@ function App() {
 
       <Navbar />
 
-      <Header />
+      <Hero />
 
       <SearchBar
         search={search}
