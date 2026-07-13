@@ -7,6 +7,7 @@ import RecipeCard from "./components/RecipeCard";
 import RecipeDetails from "./components/RecipeDetails";
 import recipes from "./data/recipes";
 import About from "./components/About";
+import Footer from "./components/Footer";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -101,6 +102,9 @@ function App() {
 
       {/* About Section */}
       <About />
+
+      {/* Footer */}
+      <Footer />
 
     </div>
   );
