@@ -1,5 +1,4 @@
-function RecipeCard({ recipe }) {
-
+function RecipeCard({ recipe, onViewRecipe }) {
   const difficultyColor = {
     Easy: "bg-green-100 text-green-700",
     Medium: "bg-yellow-100 text-yellow-700",
@@ -10,13 +9,11 @@ function RecipeCard({ recipe }) {
     <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
 
       <div className="overflow-hidden">
-
         <img
           src={recipe.image}
           alt={recipe.name}
           className="w-full h-60 object-cover hover:scale-110 transition duration-500"
         />
-
       </div>
 
       <div className="p-6">
@@ -44,7 +41,8 @@ function RecipeCard({ recipe }) {
         </span>
 
         <button
-          className="w-full mt-6 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl font-semibold transition duration-300"
+          onClick={() => onViewRecipe(recipe)}
+          className="w-full mt-6 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl font-semibold transition duration-300 cursor-pointer"
         >
           View Recipe →
         </button>

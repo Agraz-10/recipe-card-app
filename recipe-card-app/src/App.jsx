@@ -3,11 +3,13 @@ import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import CategoryFilter from "./components/CategoryFilter";
 import RecipeCard from "./components/RecipeCard";
+import RecipeDetails from "./components/RecipeDetails";
 import recipes from "./data/recipes";
 
 function App() {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   const filteredRecipes = recipes.filter((recipe) => {
     const matchesSearch = recipe.name
@@ -20,6 +22,15 @@ function App() {
 
     return matchesSearch && matchesCategory;
   });
+
+  if (selectedRecipe) {
+    return (
+      <RecipeDetails
+        recipe={selectedRecipe}
+        goBack={() => setSelectedRecipe(null)}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-100 to-red-100">
@@ -44,6 +55,7 @@ function App() {
             <RecipeCard
               key={recipe.id}
               recipe={recipe}
+              onViewRecipe={setSelectedRecipe}
             />
           ))}
 

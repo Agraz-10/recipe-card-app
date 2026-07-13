@@ -10,24 +10,52 @@ const recipes = [
     name: "Chicken Momo",
     category: "Dumplings",
     image: momo,
+
+    description:
+      "Chicken Momo is one of Nepal's most loved traditional dishes. These soft steamed dumplings are filled with seasoned minced chicken, onions, garlic, and ginger. They are served with spicy tomato achar and enjoyed across Nepal as a popular snack and main course.",
+
     time: "40 mins",
     difficulty: "Medium",
+
     rating: 4.9,
+
     calories: 320,
+    protein: "20 g",
+    carbohydrates: "28 g",
+    fat: "12 g",
+
     servings: 4,
-    ingredients: [
-      "Flour",
-      "Chicken",
-      "Onion",
-      "Garlic",
-      "Ginger"
+
+    equipment: [
+    "Mixing Bowl",
+    "Rolling Pin",
+    "Knife",
+    "Steamer"
     ],
+
+    ingredients: [
+    "Flour",
+    "Chicken",
+    "Onion",
+    "Garlic",
+    "Ginger"
+    ],
+
+    tips: [
+    "Do not overfill the wrappers.",
+    "Seal the edges tightly.",
+    "Steam only after the water starts boiling.",
+    "Serve hot with tomato achar."
+    ],
+
     steps: [
-      "Prepare the dough.",
-      "Mix the chicken filling.",
-      "Fill and fold the momos.",
-      "Steam for 20 minutes.",
-      "Serve with tomato achar."
+    "Prepare a soft dough using flour and water.",
+    "Mix minced chicken with onion, garlic, ginger, and spices.",
+    "Roll the dough into small wrappers.",
+    "Place the filling inside each wrapper.",
+    "Fold and seal the momos.",
+    "Steam for about 20 minutes.",
+    "Serve hot with tomato achar."
     ]
   },
 
