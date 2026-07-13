@@ -1,4 +1,6 @@
-function RecipeDetails({ recipe, goBack }) {
+import { Link } from "react-router-dom";
+
+function RecipeDetails({ recipe }) {
   const difficultyColor = {
     Easy: "bg-green-100 text-green-700",
     Medium: "bg-yellow-100 text-yellow-700",
@@ -10,13 +12,9 @@ function RecipeDetails({ recipe, goBack }) {
 
       <div className="max-w-5xl mx-auto">
 
-        {/* Back Button */}
-        <button
-          onClick={goBack}
-          className="mb-6 bg-white px-5 py-3 rounded-xl shadow-md hover:bg-orange-500 hover:text-white transition cursor-pointer"
-        >
+        <Link to="/recipes" className="inline-block mb-6 text-orange-600 font-semibold hover:underline">
           ← Back to Recipes
-        </button>
+        </Link>
 
         {/* Main Card */}
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">

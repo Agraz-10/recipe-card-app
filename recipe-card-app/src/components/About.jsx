@@ -1,6 +1,6 @@
 function About() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20">
+    <section id="about" className="max-w-7xl mx-auto px-6 py-20">
 
       <div className="bg-white rounded-3xl shadow-lg p-10">
 

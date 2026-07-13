@@ -5,11 +5,12 @@ import recipes from "./data/recipes";
 
 import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
+import RecipePage from "./pages/RecipePage";
 
 function App() {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [setSelectedRecipe] = useState(null);
 
   const filteredRecipes = recipes.filter((recipe) => {
     const matchesSearch = recipe.name
@@ -54,6 +55,12 @@ function App() {
               onViewRecipe={setSelectedRecipe}
             />
           }
+
+          path="/recipes/:id"
+          element={
+          <RecipePage
+            
+          />}
         />
 
       </Routes>

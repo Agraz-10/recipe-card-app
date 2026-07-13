@@ -1,4 +1,6 @@
-function RecipeCard({ recipe, onViewRecipe }) {
+import { Link } from "react-router-dom";
+
+function RecipeCard({ recipe }) {
   const difficultyColor = {
     Easy: "bg-green-100 text-green-700",
     Medium: "bg-yellow-100 text-yellow-700",
@@ -82,13 +84,11 @@ function RecipeCard({ recipe, onViewRecipe }) {
 
         </div>
 
-        {/* Button */}
-        <button
-          onClick={() => onViewRecipe(recipe)}
-          className="w-full mt-8 bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-xl font-semibold transition duration-300 cursor-pointer"
-        >
-          View Recipe →
-        </button>
+        <Link to={'/recipes/${recipe.id}'} className="block w-full mt-8">
+          <button className="w-full bg-orange-600 hover:bg-orange-700 text-2hite py-3 rounded-xl font-semibold transition duration-300 cursor-pointer">
+            View Recipe →
+          </button>
+        </Link>
 
       </div>
 
