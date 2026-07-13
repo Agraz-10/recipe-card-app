@@ -1,13 +1,10 @@
 import { useState } from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import SearchBar from "./components/SearchBar";
-import CategoryFilter from "./components/CategoryFilter";
-import RecipeCard from "./components/RecipeCard";
-import RecipeDetails from "./components/RecipeDetails";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import recipes from "./data/recipes";
-import About from "./components/About";
-import Footer from "./components/Footer";
+
+import Home from "./pages/Home";
+import Recipes from "./pages/Recipes";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -26,96 +23,42 @@ function App() {
     return matchesSearch && matchesCategory;
   });
 
-  if (selectedRecipe) {
-    return (
-      <RecipeDetails
-        recipe={selectedRecipe}
-        goBack={() => setSelectedRecipe(null)}
-      />
-    );
-  }
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-100 to-red-100">
+    <BrowserRouter>
 
-      {/* Navbar */}
-      <Navbar />
+      <Routes>
 
-      {/* Hero */}
-      <Hero />
-
-      {/* Search */}
-      <SearchBar
-        search={search}
-        setSearch={setSearch}
-      />
-
-      {/* Categories */}
-      <CategoryFilter
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-      />
-
-      {/* Featured Recipes */}
-      <section className="max-w-7xl mx-auto px-6 mt-20 mb-12">
-
-        <div className="text-center">
-
-          <p className="text-orange-600 uppercase tracking-[4px] font-semibold">
-            Traditional Dishes
-          </p>
-
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mt-4">
-            Featured Recipes
-          </h2>
-
-          <div className="w-24 h-1 bg-orange-500 rounded-full mx-auto mt-5"></div>
-
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto mt-6 leading-8">
-            Discover authentic Nepali recipes carefully selected to
-            showcase the rich culinary heritage of Nepal. From
-            traditional family meals to famous street food, explore
-            detailed recipes with ingredients, cooking tips,
-            nutrition facts, and step-by-step instructions.
-          </p>
-
-        </div>
-
-      </section>
-
-      {/* Recipe Cards */}
-      <section className="max-w-7xl mx-auto px-6 pb-20">
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-          {filteredRecipes.slice(0, 3).map((recipe) => (
-            <RecipeCard
-              key={recipe.id}
-              recipe={recipe}
+        <Route
+          path="/"
+          element={
+            <Home
+              search={search}
+              setSearch={setSearch}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+              filteredRecipes={filteredRecipes}
               onViewRecipe={setSelectedRecipe}
             />
-          ))}
+          }
+        />
 
-        </div>
+        <Route
+          path="/recipes"
+          element={
+            <Recipes
+              search={search}
+              setSearch={setSearch}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+              filteredRecipes={filteredRecipes}
+              onViewRecipe={setSelectedRecipe}
+            />
+          }
+        />
 
-        {/* View All Recipes Button */}
-        <div className="flex justify-center mt-12">
+      </Routes>
 
-          <button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-semibold shadow-lg transition duration-300 cursor-pointer">
-            View All Recipes →
-          </button>
-
-        </div>
-
-      </section>
-
-      {/* About Section */}
-      <About />
-
-      {/* Footer */}
-      <Footer />
-
-    </div>
+    </BrowserRouter>
   );
 }
 
