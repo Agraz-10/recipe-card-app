@@ -1,3 +1,5 @@
+import hero from "../assets/images/hero.jpg";
+
 function Hero() {
   return (
     <section className="max-w-7xl mx-auto px-6 py-20">
@@ -36,9 +38,9 @@ function Hero() {
         <div className="flex justify-center">
 
           <img
-            src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800"
-            alt="Nepali Food"
-            className="rounded-3xl shadow-2xl w-full max-w-lg"
+            src={hero}
+            alt="Traditional Nepali Food"
+            className="w-full max-w-2xl rounded-3xl shadow-2xl object-cover hover:scale-105 transition duration-500"
           />
 
         </div>
