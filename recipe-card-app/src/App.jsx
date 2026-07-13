@@ -10,7 +10,9 @@ import RecipePage from "./pages/RecipePage";
 function App() {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [sortOption, setSortOption] = useState("default");
 
+  // Filter Recipes
   const filteredRecipes = recipes.filter((recipe) => {
     const matchesSearch = recipe.name
       .toLowerCase()
@@ -22,6 +24,39 @@ function App() {
 
     return matchesSearch && matchesCategory;
   });
+
+  // Sort Recipes
+  const sortedRecipes = [...filteredRecipes];
+
+  switch (sortOption) {
+    case "name":
+      sortedRecipes.sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
+      break;
+
+    case "rating":
+      sortedRecipes.sort((a, b) =>
+        b.rating - a.rating
+      );
+      break;
+
+    case "calories":
+      sortedRecipes.sort((a, b) =>
+        a.calories - b.calories
+      );
+      break;
+
+    case "time":
+      sortedRecipes.sort(
+        (a, b) =>
+          parseInt(a.time) - parseInt(b.time)
+      );
+      break;
+
+    default:
+      break;
+  }
 
   return (
     <BrowserRouter>
@@ -36,7 +71,7 @@ function App() {
               setSearch={setSearch}
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
-              filteredRecipes={filteredRecipes}
+              filteredRecipes={sortedRecipes}
             />
           }
         />
@@ -49,7 +84,9 @@ function App() {
               setSearch={setSearch}
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
-              filteredRecipes={filteredRecipes}
+              filteredRecipes={sortedRecipes}
+              sortOption={sortOption}
+              setSortOption={setSortOption}
             />
           }
         />

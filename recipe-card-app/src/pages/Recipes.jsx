@@ -3,6 +3,7 @@ import SearchBar from "../components/SearchBar";
 import CategoryFilter from "../components/CategoryFilter";
 import RecipeCard from "../components/RecipeCard";
 import Footer from "../components/Footer";
+import SortRecipes from "../components/SortRecipes";
 
 function Recipes({
   search,
@@ -10,6 +11,8 @@ function Recipes({
   selectedCategory,
   setSelectedCategory,
   filteredRecipes,
+  sortOption,
+  setSortOption,
 }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-100 to-red-100">
@@ -43,6 +46,11 @@ function Recipes({
         <CategoryFilter
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+        />
+
+        <SortRecipes
+            sortOption={sortOption}
+            setSortOption={setSortOption}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
