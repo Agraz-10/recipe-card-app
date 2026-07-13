@@ -14,7 +14,6 @@ function Home({
     selectedCategory,
     setSelectedCategory,
     filteredRecipes,
-    onViewRecipe,
 }) {
     return (
         <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-100 to-red-100">
@@ -64,7 +63,6 @@ function Home({
                         <RecipeCard
                             key={recipe.id}
                             recipe={recipe}
-                            onViewRecipe={onViewRecipe}
                         />
                     ))}
 

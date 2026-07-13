@@ -41,9 +41,7 @@ function RecipeCard({ recipe }) {
 
           <div className="bg-orange-50 rounded-xl p-3 text-center">
 
-            <p className="text-xl">
-              ⏱
-            </p>
+            <p className="text-xl">⏱</p>
 
             <p className="text-sm text-gray-500">
               Time
@@ -57,9 +55,7 @@ function RecipeCard({ recipe }) {
 
           <div className="bg-red-50 rounded-xl p-3 text-center">
 
-            <p className="text-xl">
-              🔥
-            </p>
+            <p className="text-xl">🔥</p>
 
             <p className="text-sm text-gray-500">
               Calories
@@ -84,8 +80,11 @@ function RecipeCard({ recipe }) {
 
         </div>
 
-        <Link to={'/recipes/${recipe.id}'} className="block w-full mt-8">
-          <button className="w-full bg-orange-600 hover:bg-orange-700 text-2hite py-3 rounded-xl font-semibold transition duration-300 cursor-pointer">
+        <Link
+          to={`/recipes/${recipe.id}`}
+          className="block w-full mt-8"
+        >
+          <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-xl font-semibold transition duration-300 cursor-pointer">
             View Recipe →
           </button>
         </Link>
