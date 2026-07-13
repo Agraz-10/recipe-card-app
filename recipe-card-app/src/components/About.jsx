@@ -28,7 +28,7 @@ function About() {
               Traditional Dishes
             </h3>
             <p className="text-gray-600 mt-2">
-              Enjoy authentic recipes like Momo, Dal Bhat, Sel Roti, Thukpa, and Sekuwa.
+              Enjoy authentic recipes like Momo, Dal Bhat, Sel Roti.
             </p>
           </div>
 

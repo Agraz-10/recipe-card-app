@@ -88,7 +88,7 @@ function App() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-          {filteredRecipes.map((recipe) => (
+          {filteredRecipes.slice(0,3).map((recipe) => (
             <RecipeCard
               key={recipe.id}
               recipe={recipe}
@@ -96,6 +96,15 @@ function App() {
             />
           ))}
 
+        </div>
+
+          {/* View All Recipes Button */}
+        <div className="flex justify-center mt-12">
+
+          <button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-semibold shadow-lg transition duration-300 cursor-pointer">
+             View All Recipes →
+          </button>
+          
         </div>
 
       </section>

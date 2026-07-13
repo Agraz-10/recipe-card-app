@@ -3,6 +3,10 @@ import dalbhat from "../assets/images/dalbhat.jpg";
 import selroti from "../assets/images/selroti.jpg";
 import thukpa from "../assets/images/thukpa.jpg";
 import sekuwa from "../assets/images/sekuwa.jpg";
+import alootama from "../assets/images/alootama.jpg";
+import choila from "../assets/images/choila.jpg";
+import alooachaar from "../assets/images/alooachaar.jpg";
+
 
 const recipes = [
   {
@@ -238,6 +242,161 @@ const recipes = [
       "Thread onto skewers.",
       "Grill until fully cooked.",
       "Serve hot with onions and lemon."
+    ]
+  },
+
+  {
+    id: 6,
+    name: "Aloo Tama",
+    category: "Curry",
+    image: alootama,
+
+    description:
+      "Aloo Tama is a traditional Nepali curry prepared with potatoes, bamboo shoots, and black-eyed peas. It has a unique tangy flavor and is commonly enjoyed with steamed rice.",
+
+    time: "40 mins",
+    difficulty: "Medium",
+
+    rating: 4.8,
+
+    calories: 340,
+    protein: "10 g",
+    carbohydrates: "42 g",
+    fat: "9 g",
+
+    servings: 4,
+
+    equipment: [
+      "Cooking Pot",
+      "Knife",
+      "Spatula"
+    ],
+
+    ingredients: [
+      "Potatoes",
+      "Bamboo Shoots",
+      "Black-eyed Peas",
+      "Tomatoes",
+      "Turmeric",
+      "Garlic",
+      "Ginger"
+    ],
+
+    tips: [
+      "Use fresh bamboo shoots for better flavor.",
+      "Cook potatoes until tender.",
+      "Serve hot with steamed rice."
+    ],
+
+    steps: [
+      "Boil the black-eyed peas.",
+      "Cook potatoes with spices.",
+      "Add bamboo shoots and tomatoes.",
+      "Mix in the peas.",
+      "Simmer for 15 minutes.",
+      "Serve hot with rice."
+    ]
+  },
+
+  {
+    id: 7,
+    name: "Chicken Choila",
+    category: "Meat",
+    image: choila,
+
+    description:
+      "Chicken Choila is a famous Newari dish made by grilling chicken and mixing it with mustard oil, garlic, ginger, chili, and traditional Nepali spices.",
+
+    time: "35 mins",
+    difficulty: "Medium",
+
+    rating: 4.9,
+
+    calories: 420,
+    protein: "30 g",
+    carbohydrates: "8 g",
+    fat: "18 g",
+
+    servings: 3,
+
+    equipment: [
+      "Grill",
+      "Knife",
+      "Mixing Bowl"
+    ],
+
+    ingredients: [
+      "Chicken",
+      "Mustard Oil",
+      "Garlic",
+      "Ginger",
+      "Green Chili",
+      "Coriander"
+    ],
+
+    tips: [
+      "Grill until slightly charred.",
+      "Serve immediately.",
+      "Use mustard oil for authentic flavor."
+    ],
+
+    steps: [
+      "Grill the chicken.",
+      "Slice into bite-sized pieces.",
+      "Mix with spices and mustard oil.",
+      "Add fresh coriander.",
+      "Serve warm."
+    ]
+  },
+
+  {
+    id: 8,
+    name: "Aloo Achaar",
+    category: "Side Dish",
+    image: alooachaar,
+
+    description:
+      "Aloo Achaar is a spicy Nepali potato salad prepared with mustard oil, sesame seeds, chili, turmeric, and fresh herbs. It is commonly served alongside Dal Bhat and festive meals.",
+
+    time: "20 mins",
+    difficulty: "Easy",
+
+    rating: 4.7,
+
+    calories: 250,
+    protein: "5 g",
+    carbohydrates: "30 g",
+    fat: "11 g",
+
+    servings: 4,
+
+    equipment: [
+      "Cooking Pot",
+      "Mixing Bowl"
+    ],
+
+    ingredients: [
+      "Boiled Potatoes",
+      "Sesame Seeds",
+      "Mustard Oil",
+      "Green Chili",
+      "Turmeric",
+      "Coriander"
+    ],
+
+    tips: [
+      "Mix while potatoes are warm.",
+      "Adjust chili to taste.",
+      "Serve chilled or at room temperature."
+    ],
+
+    steps: [
+      "Boil the potatoes.",
+      "Cut into cubes.",
+      "Prepare the seasoning.",
+      "Mix everything together.",
+      "Garnish with coriander.",
+      "Serve."
     ]
   }
 ];
