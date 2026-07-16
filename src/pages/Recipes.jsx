@@ -96,15 +96,50 @@ function Recipes({
 
         ) : (
 
-          <div className="text-center py-24">
+          <div className="bg-white rounded-3xl shadow-lg p-12 mt-12 text-center max-w-3xl mx-auto">
 
-            <h2 className="text-4xl font-bold text-gray-700">
-              No Recipes Found 😔
+            <div className="text-7xl mb-6">
+              🍲
+            </div>
+
+            <h2 className="text-4xl font-bold text-gray-800">
+              No Recipes Found
             </h2>
 
-            <p className="text-gray-500 mt-4 text-lg">
-              Try changing your search, category, or favorites filter.
+            <p className="text-gray-600 text-lg mt-5 leading-8">
+              We couldn't find any recipes that match your current search.
             </p>
+
+            <div className="mt-8 text-left inline-block">
+
+              <p className="font-semibold text-gray-700 mb-3">
+                Try one of these:
+              </p>
+
+              <ul className="space-y-2 text-gray-600">
+
+                <li>• Search using another keyword.</li>
+
+                <li>• Select a different category.</li>
+
+                <li>• Turn off the Favorites filter.</li>
+
+                <li>• Clear the search bar.</li>
+
+              </ul>
+
+            </div>
+
+            <button
+              onClick={() => {
+                setSearch("");
+                setSelectedCategory("All");
+                setShowFavoritesOnly(false);
+              }}
+              className="mt-10 bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-xl font-semibold transition duration-300 cursor-pointer"
+            >
+              Reset Filters
+            </button>
 
           </div>
 
