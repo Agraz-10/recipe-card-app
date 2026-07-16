@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Heart } from "lucide-react";
 
 function RecipeCard({ recipe }) {
   const difficultyColor = {
@@ -19,9 +20,20 @@ function RecipeCard({ recipe }) {
           className="w-full h-64 object-cover hover:scale-110 transition duration-500"
         />
 
+        {/* Rating */}
         <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full shadow text-sm font-semibold text-yellow-600">
           ⭐ {recipe.rating}
         </div>
+
+        {/* Favorite Button */}
+        <button
+          className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md hover:bg-red-50 transition duration-300 cursor-pointer"
+        >
+          <Heart
+            size={22}
+            className="text-gray-500 hover:text-red-500 transition"
+          />
+        </button>
 
       </div>
 
@@ -62,7 +74,7 @@ function RecipeCard({ recipe }) {
             </p>
 
             <p className="font-semibold">
-              {recipe.calories}
+              {recipe.calories} kcal
             </p>
 
           </div>
@@ -80,6 +92,7 @@ function RecipeCard({ recipe }) {
 
         </div>
 
+        {/* View Recipe Button */}
         <Link
           to={`/recipes/${recipe.id}`}
           className="block w-full mt-8"
