@@ -1,7 +1,11 @@
-function RecipeStats({
-  recipes,
-  favorites,
-}) {
+import {
+  BookOpen,
+  UtensilsCrossed,
+  Heart,
+  Star,
+} from "lucide-react";
+
+function RecipeStats({ recipes, favorites }) {
   const totalRecipes = recipes.length;
 
   const totalCategories = new Set(
@@ -9,71 +13,71 @@ function RecipeStats({
   ).size;
 
   const averageRating =
-    recipes.reduce(
-      (sum, recipe) => sum + recipe.rating,
-      0
-    ) / totalRecipes;
+    totalRecipes > 0
+      ? (
+          recipes.reduce(
+            (sum, recipe) => sum + recipe.rating,
+            0
+          ) / totalRecipes
+        ).toFixed(1)
+      : "0.0";
+
+  const stats = [
+    {
+      icon: <BookOpen size={36} />,
+      value: totalRecipes,
+      title: "Recipes",
+      description: "Available Recipes",
+    },
+    {
+      icon: <UtensilsCrossed size={36} />,
+      value: totalCategories,
+      title: "Categories",
+      description: "Food Categories",
+    },
+    {
+      icon: <Heart size={36} />,
+      value: favorites.length,
+      title: "Favorites",
+      description: "Saved Recipes",
+    },
+    {
+      icon: <Star size={36} />,
+      value: averageRating,
+      title: "Rating",
+      description: "Average Score",
+    },
+  ];
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 my-12">
+    <section className="grid grid-cols-2 lg:grid-cols-4 gap-6 my-12">
 
-      <div className="bg-white rounded-2xl shadow-md p-6 text-center">
+      {stats.map((stat, index) => (
+        <div
+          key={index}
+          className="bg-white rounded-3xl shadow-lg p-8 text-center hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+        >
 
-        <p className="text-4xl">📚</p>
+          <div className="flex justify-center text-orange-600">
+            {stat.icon}
+          </div>
 
-        <h3 className="text-3xl font-bold text-orange-600 mt-3">
-          {totalRecipes}
-        </h3>
+          <h2 className="text-4xl font-bold text-gray-800 mt-5">
+            {stat.value}
+          </h2>
 
-        <p className="text-gray-600 mt-2">
-          Recipes
-        </p>
+          <h3 className="text-xl font-semibold mt-2">
+            {stat.title}
+          </h3>
 
-      </div>
+          <p className="text-gray-500 mt-2">
+            {stat.description}
+          </p>
 
-      <div className="bg-white rounded-2xl shadow-md p-6 text-center">
+        </div>
+      ))}
 
-        <p className="text-4xl">🍽</p>
-
-        <h3 className="text-3xl font-bold text-orange-600 mt-3">
-          {totalCategories}
-        </h3>
-
-        <p className="text-gray-600 mt-2">
-          Categories
-        </p>
-
-      </div>
-
-      <div className="bg-white rounded-2xl shadow-md p-6 text-center">
-
-        <p className="text-4xl">❤️</p>
-
-        <h3 className="text-3xl font-bold text-orange-600 mt-3">
-          {favorites.length}
-        </h3>
-
-        <p className="text-gray-600 mt-2">
-          Favorites
-        </p>
-
-      </div>
-
-      <div className="bg-white rounded-2xl shadow-md p-6 text-center">
-
-        <p className="text-4xl">⭐</p>
-
-        <h3 className="text-3xl font-bold text-orange-600 mt-3">
-          {averageRating.toFixed(1)}
-        </h3>
-
-        <p className="text-gray-600 mt-2">
-          Average Rating
-        </p>
-
-      </div>
-
-    </div>
+    </section>
   );
 }
 
