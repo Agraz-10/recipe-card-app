@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import recipes from "./data/recipes";
@@ -12,13 +12,26 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortOption, setSortOption] = useState("default");
 
-  // Favorites
-  const [favorites, setFavorites] = useState([]);
+  // Load favorites from localStorage
+  const [favorites, setFavorites] = useState(() => {
+    const savedFavorites = localStorage.getItem("favorites");
+
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
+  });
+
+  // Save favorites whenever they change
+  useEffect(() => {
+    localStorage.setItem(
+      "favorites",
+      JSON.stringify(favorites)
+    );
+  }, [favorites]);
 
   // Filter Recipes
   const filteredRecipes = recipes.filter((recipe) => {
-    const matchesSearch =
-      recipe.name.toLowerCase().includes(search.toLowerCase());
+    const matchesSearch = recipe.name
+      .toLowerCase()
+      .includes(search.toLowerCase());
 
     const matchesCategory =
       selectedCategory === "All" ||
@@ -60,7 +73,6 @@ function App() {
       break;
   }
 
-  // Toggle Favorite
   const toggleFavorite = (recipeId) => {
     if (favorites.includes(recipeId)) {
       setFavorites(
@@ -73,6 +85,7 @@ function App() {
 
   return (
     <BrowserRouter>
+
       <Routes>
 
         <Route
@@ -113,6 +126,7 @@ function App() {
         />
 
       </Routes>
+
     </BrowserRouter>
   );
 }
