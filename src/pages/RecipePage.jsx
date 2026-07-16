@@ -2,7 +2,9 @@ import { useParams } from "react-router-dom";
 import RecipeDetails from "../components/RecipeDetails";
 import recipes from "../data/recipes";
 
-function RecipePage() {
+function RecipePage({
+  addToShoppingList,
+}) {
   const { id } = useParams();
 
   const recipe = recipes.find(
@@ -17,10 +19,12 @@ function RecipePage() {
     );
   }
 
-  return <RecipeDetails
-    recipe={recipe}
-    addToShoppingList={addToShoppingList}
-  />;
+  return (
+    <RecipeDetails
+      recipe={recipe}
+      addToShoppingList={addToShoppingList}
+    />
+  );
 }
 
 export default RecipePage;

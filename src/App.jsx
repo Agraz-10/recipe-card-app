@@ -6,6 +6,7 @@ import recipes from "./data/recipes";
 import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
 import RecipePage from "./pages/RecipePage";
+import ShoppingList from "./pages/ShoppingList";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -158,6 +159,16 @@ function App() {
               toggleFavorite={toggleFavorite}
               showFavoritesOnly={showFavoritesOnly}
               setShowFavoritesOnly={setShowFavoritesOnly}
+            />
+          }
+        />
+
+        <Route
+          path="/shopping-list"
+          element={
+            <ShoppingList
+              shoppingList={shoppingList}
+              setShoppingList={setShoppingList}
             />
           }
         />

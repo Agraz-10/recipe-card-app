@@ -53,10 +53,9 @@ function Navbar() {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `font-semibold transition ${
-                isActive
-                  ? "text-orange-600 border-b-2 border-orange-600 pb-1"
-                  : "text-gray-700 hover:text-orange-600"
+              `font-semibold transition ${isActive
+                ? "text-orange-600 border-b-2 border-orange-600 pb-1"
+                : "text-gray-700 hover:text-orange-600"
               }`
             }
           >
@@ -66,14 +65,25 @@ function Navbar() {
           <NavLink
             to="/recipes"
             className={({ isActive }) =>
-              `font-semibold transition ${
-                isActive
-                  ? "text-orange-600 border-b-2 border-orange-600 pb-1"
-                  : "text-gray-700 hover:text-orange-600"
+              `font-semibold transition ${isActive
+                ? "text-orange-600 border-b-2 border-orange-600 pb-1"
+                : "text-gray-700 hover:text-orange-600"
               }`
             }
           >
             Recipes
+          </NavLink>
+
+          <NavLink
+            to="/shopping-list"
+            className={({ isActive }) =>
+              `font-semibold transition ${isActive
+                ? "text-orange-600 border-b-2 border-orange-600 pb-1"
+                : "text-gray-700 hover:text-orange-600"
+              }`
+            }
+          >
+            Shopping List
           </NavLink>
 
           <button
