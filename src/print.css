@@ -1,0 +1,16 @@
+@media print {
+  nav,
+  button,
+  footer {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

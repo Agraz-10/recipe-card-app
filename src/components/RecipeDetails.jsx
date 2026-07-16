@@ -12,14 +12,34 @@ function RecipeDetails({ recipe }) {
 
       <div className="max-w-5xl mx-auto">
 
-        <div className="flex gapp-6 mb-6">
-          <Link to="/" className="text-orange-600 font-semibold hover:underline">
-            ← Home
-          </Link>
+        {/* Navigation & Print */}
+        <div className="flex flex-wrap justify-between items-center mb-6">
 
-          <Link to="/recipes" className="text-orange-600 font-semibold hover:underline">
-            ← All Recipes
-          </Link>
+          <div className="flex gap-6">
+
+            <Link
+              to="/"
+              className="text-orange-600 font-semibold hover:underline"
+            >
+              ← Home
+            </Link>
+
+            <Link
+              to="/recipes"
+              className="text-orange-600 font-semibold hover:underline"
+            >
+              ← All Recipes
+            </Link>
+
+          </div>
+
+          <button
+            onClick={() => window.print()}
+            className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-semibold transition duration-300 cursor-pointer"
+          >
+            🖨️ Print Recipe
+          </button>
+
         </div>
 
         {/* Main Card */}
@@ -50,6 +70,7 @@ function RecipeDetails({ recipe }) {
 
             {/* Description */}
             <section className="mt-10">
+
               <h2 className="text-3xl font-bold text-orange-600 mb-4">
                 Description
               </h2>
@@ -57,10 +78,12 @@ function RecipeDetails({ recipe }) {
               <p className="text-gray-700 leading-8">
                 {recipe.description}
               </p>
+
             </section>
 
             {/* Quick Facts */}
             <section className="mt-10">
+
               <h2 className="text-3xl font-bold text-orange-600 mb-5">
                 Quick Facts
               </h2>
@@ -98,15 +121,18 @@ function RecipeDetails({ recipe }) {
                 </div>
 
               </div>
+
             </section>
 
             {/* Ingredients */}
             <section className="mt-10">
+
               <h2 className="text-3xl font-bold text-orange-600 mb-5">
                 Ingredients
               </h2>
 
               <div className="grid md:grid-cols-2 gap-4">
+
                 {recipe.ingredients.map((ingredient, index) => (
                   <div
                     key={index}
@@ -115,16 +141,20 @@ function RecipeDetails({ recipe }) {
                     ✔ {ingredient}
                   </div>
                 ))}
+
               </div>
+
             </section>
 
             {/* Equipment */}
             <section className="mt-10">
+
               <h2 className="text-3xl font-bold text-orange-600 mb-5">
                 Equipment Needed
               </h2>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
                 {recipe.equipment.map((item, index) => (
                   <div
                     key={index}
@@ -133,16 +163,20 @@ function RecipeDetails({ recipe }) {
                     {item}
                   </div>
                 ))}
+
               </div>
+
             </section>
 
             {/* Cooking Steps */}
             <section className="mt-10">
+
               <h2 className="text-3xl font-bold text-orange-600 mb-5">
                 How to Prepare
               </h2>
 
               <div className="space-y-4">
+
                 {recipe.steps.map((step, index) => (
                   <div
                     key={index}
@@ -155,18 +189,23 @@ function RecipeDetails({ recipe }) {
                     <p className="text-gray-700">
                       {step}
                     </p>
+
                   </div>
                 ))}
+
               </div>
+
             </section>
 
             {/* Tips */}
             <section className="mt-10">
+
               <h2 className="text-3xl font-bold text-orange-600 mb-5">
                 Cooking Tips
               </h2>
 
               <div className="space-y-3">
+
                 {recipe.tips.map((tip, index) => (
                   <div
                     key={index}
@@ -175,11 +214,14 @@ function RecipeDetails({ recipe }) {
                     💡 {tip}
                   </div>
                 ))}
+
               </div>
+
             </section>
 
             {/* Nutrition */}
             <section className="mt-10">
+
               <h2 className="text-3xl font-bold text-orange-600 mb-5">
                 Nutrition Facts
               </h2>
@@ -207,6 +249,7 @@ function RecipeDetails({ recipe }) {
                 </div>
 
               </div>
+
             </section>
 
             {/* Footer */}
