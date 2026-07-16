@@ -20,6 +20,15 @@ function App() {
     return savedFavorites ? JSON.parse(savedFavorites) : [];
   });
 
+  // Load shopping list from localStorage
+  const [shoppingList, setShoppingList] = useState(() => {
+    const savedShoppingList = localStorage.getItem("shoppingList");
+
+    return savedShoppingList
+      ? JSON.parse(savedShoppingList)
+      : [];
+  });
+
   // Save favorites whenever they change
   useEffect(() => {
     localStorage.setItem(
@@ -27,6 +36,14 @@ function App() {
       JSON.stringify(favorites)
     );
   }, [favorites]);
+
+  // Save shopping list whenever they change
+  useEffect(() => {
+    localStorage.setItem(
+      "shoppingList",
+      JSON.stringify(shoppingList)
+    );
+  }, [shoppingList]);
 
   // Filter Recipes
   const filteredRecipes = recipes.filter((recipe) => {
@@ -90,6 +107,20 @@ function App() {
     } else {
       setFavorites([...favorites, recipeId]);
     }
+  };
+
+  const addToShoppingList = (ingredients) => {
+    setShoppingList((previousList) => {
+      const updatedList = [...previousList];
+
+      ingredients.forEach((ingredient) => {
+        if (!updatedList.includes(ingredient)) {
+          updatedList.push(ingredient);
+        }
+      });
+
+      return updatedList;
+    });
   };
 
   return (
