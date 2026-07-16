@@ -5,6 +5,7 @@ import SortRecipes from "../components/SortRecipes";
 import FavoriteFilter from "../components/FavoriteFilter";
 import RecipeCard from "../components/RecipeCard";
 import Footer from "../components/Footer";
+import RecipeStats from "../components/RecipeStats";
 
 function Recipes({
   search,
@@ -44,6 +45,11 @@ function Recipes({
           </p>
 
         </div>
+
+        <RecipeStats
+          recipes={filteredRecipes}
+          favorites={favorites}
+        />
 
         {/* Search */}
         <SearchBar
