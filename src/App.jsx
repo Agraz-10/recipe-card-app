@@ -12,11 +12,13 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortOption, setSortOption] = useState("default");
 
+  // Favorites
+  const [favorites, setFavorites] = useState([]);
+
   // Filter Recipes
   const filteredRecipes = recipes.filter((recipe) => {
-    const matchesSearch = recipe.name
-      .toLowerCase()
-      .includes(search.toLowerCase());
+    const matchesSearch =
+      recipe.name.toLowerCase().includes(search.toLowerCase());
 
     const matchesCategory =
       selectedCategory === "All" ||
@@ -58,9 +60,19 @@ function App() {
       break;
   }
 
+  // Toggle Favorite
+  const toggleFavorite = (recipeId) => {
+    if (favorites.includes(recipeId)) {
+      setFavorites(
+        favorites.filter((id) => id !== recipeId)
+      );
+    } else {
+      setFavorites([...favorites, recipeId]);
+    }
+  };
+
   return (
     <BrowserRouter>
-
       <Routes>
 
         <Route
@@ -72,6 +84,8 @@ function App() {
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
               filteredRecipes={sortedRecipes}
+              favorites={favorites}
+              toggleFavorite={toggleFavorite}
             />
           }
         />
@@ -87,6 +101,8 @@ function App() {
               filteredRecipes={sortedRecipes}
               sortOption={sortOption}
               setSortOption={setSortOption}
+              favorites={favorites}
+              toggleFavorite={toggleFavorite}
             />
           }
         />
@@ -97,7 +113,6 @@ function App() {
         />
 
       </Routes>
-
     </BrowserRouter>
   );
 }

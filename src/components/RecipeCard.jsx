@@ -1,12 +1,18 @@
 import { Link } from "react-router-dom";
 import { Heart } from "lucide-react";
 
-function RecipeCard({ recipe }) {
+function RecipeCard({
+  recipe,
+  favorites,
+  toggleFavorite,
+}) {
   const difficultyColor = {
     Easy: "bg-green-100 text-green-700",
     Medium: "bg-yellow-100 text-yellow-700",
     Hard: "bg-red-100 text-red-700",
   };
+
+  const isFavorite = favorites.includes(recipe.id);
 
   return (
     <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-3 transition-all duration-300">
@@ -27,11 +33,17 @@ function RecipeCard({ recipe }) {
 
         {/* Favorite Button */}
         <button
+          onClick={() => toggleFavorite(recipe.id)}
           className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md hover:bg-red-50 transition duration-300 cursor-pointer"
         >
           <Heart
             size={22}
-            className="text-gray-500 hover:text-red-500 transition"
+            fill={isFavorite ? "#ef4444" : "none"}
+            className={
+              isFavorite
+                ? "text-red-500"
+                : "text-gray-500 hover:text-red-500 transition"
+            }
           />
         </button>
 
