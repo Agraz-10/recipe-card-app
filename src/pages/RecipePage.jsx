@@ -17,7 +17,10 @@ function RecipePage() {
     );
   }
 
-  return <RecipeDetails recipe={recipe} />;
+  return <RecipeDetails
+    recipe={recipe}
+    addToShoppingList={addToShoppingList}
+  />;
 }
 
 export default RecipePage;

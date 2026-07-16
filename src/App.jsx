@@ -164,7 +164,10 @@ function App() {
 
         <Route
           path="/recipes/:id"
-          element={<RecipePage />}
+          element={<RecipePage
+            addToShoppingList={addToShoppingList}
+          />
+          }
         />
 
       </Routes>

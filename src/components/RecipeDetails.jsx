@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function RecipeDetails({ recipe }) {
+function RecipeDetails({ recipe, addToShoppingList }) {
   const difficultyColor = {
     Easy: "bg-green-100 text-green-700",
     Medium: "bg-yellow-100 text-yellow-700",
@@ -141,6 +141,17 @@ function RecipeDetails({ recipe }) {
                     ✔ {ingredient}
                   </div>
                 ))}
+
+              </div>
+
+              <div className="mt-8 flex justify-center">
+
+                <button
+                  onClick={() => addToShoppingList(recipe.ingredients)}
+                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-xl font-semibold transition duration-300 cursor-pointer"
+                >
+                  🛒 Add Ingredients to Shopping List
+                </button>
 
               </div>
 
