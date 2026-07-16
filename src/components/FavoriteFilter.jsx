@@ -11,7 +11,6 @@ function App() {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortOption, setSortOption] = useState("default");
-  const [showFavoritesOnly, setShowFavortieOnly] = useState(false);
 
   // Load favorites from localStorage
   const [favorites, setFavorites] = useState(() => {
@@ -42,15 +41,7 @@ function App() {
   });
 
   // Sort Recipes
-  let displayedRecipes = [...filteredRecipes];
-
-  if (showFavoritesOnly) {
-    displayedRecipes = displayedRecipes.filter((recipe) =>
-      favorites.includes(recipe.id)
-    );
-  }
-
-  const [sortedRecipes] = [...displayedRecipes];
+  const sortedRecipes = [...filteredRecipes];
 
   switch (sortOption) {
     case "name":
@@ -125,8 +116,6 @@ function App() {
               setSortOption={setSortOption}
               favorites={favorites}
               toggleFavorite={toggleFavorite}
-              showFavoritesOnly={showFavoritesOnly}
-              setShowFavortieOnly={setShowFavortieOnly}
             />
           }
         />
